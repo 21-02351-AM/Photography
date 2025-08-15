@@ -8,7 +8,8 @@ export class AlbumService {
     {
       title: 'Weddings',
       slug: 'weddings',
-      cover: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+      cover:
+        'https://images.unsplash.com/photo-1705058642830-ccec83937fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHdlZGRpbmclMjBtb21lbnRzfGVufDB8fDB8fHww',
       photos: [
         'https://unsplash.com/photos/two-gold-wedding-rings-on-a-white-background-WHUG4KXCbuI',
         'https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D,',
