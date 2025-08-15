@@ -73,7 +73,6 @@ export class AlbumService {
         'https://images.unsplash.com/photo-1713450605268-5f8ba67f5b55?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBhcnR5fGVufDB8MnwwfHx8MA%3D%3D',
         'https://media.istockphoto.com/id/2150389695/photo/concertgoer-forms-heart-shape-with-hands-at-beachside-music-festival-crowd-enjoys-live.webp?a=1&b=1&s=612x612&w=0&k=20&c=94ItQ9LNfLzEWpZjanwst8wgldIT-3nrZhQs7dmbNOk=',
         'https://images.unsplash.com/photo-1731596153338-dd52df3e63c1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHBhcnR5fGVufDB8MnwwfHx8MA%3D%3D',
-        'https://images.unsplash.com/photo-1731596153338-dd52df3e63c1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHBhcnR5fGVufDB8MnwwfHx8MA%3D%3D',
         // ... more
       ],
     },
