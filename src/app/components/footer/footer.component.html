@@ -1,0 +1,66 @@
+<footer class="w-full text-white font-mono">
+  <!-- Top Section: Social Icons + Label -->
+  <div class="py-12 px-6 md:px-16">
+    <div class="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 items-center">
+      <!-- Left: Icons + Names -->
+      <div class="flex flex-wrap justify-center md:justify-start gap-6">
+        <div
+          *ngFor="let social of socials"
+          class="flex flex-col items-center w-24"
+        >
+          <a [href]="social.url" target="_blank" rel="noopener noreferrer">
+            <img
+              [src]="social.image"
+              [alt]="social.name"
+              class="w-16 h-16 md:w-20 md:h-20 object-cover shadow-md hover:scale-105 transition duration-300"
+            />
+          </a>
+          <span class="mt-2 text-xs md:text-sm text-gray-400 text-center">
+            {{ social.name }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: Label -->
+      <div class="text-center md:text-right">
+        <p class="text-xl md:text-2xl font-semibold text-gray-300">
+          Follow me on my socials
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <hr class="border-white/10" />
+
+  <!-- Bottom Section -->
+  <div class="py-4 px-6 md:px-16">
+    <div
+      class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 items-center gap-4 text-center sm:text-left"
+    >
+      <!-- Left -->
+      <p class="text-xs tracking-widest text-gray-400 sm:text-left">
+        © 2025 GIANNA WISEMAN PHOTOGRAPHY
+      </p>
+
+      <!-- Center: Logo Button -->
+      <div class="flex justify-center">
+        <button
+          class="border border-white px-2 py-1 text-xs hover:bg-white hover:text-black transition"
+        >
+          P
+        </button>
+      </div>
+
+      <!-- Right: Scroll-to-top -->
+      <div class="flex justify-center sm:justify-end">
+        <button
+          (click)="scrollToTop()"
+          class="hover:text-gray-300 transition text-sm"
+        >
+          ↑
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>

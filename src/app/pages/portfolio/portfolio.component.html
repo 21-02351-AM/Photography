@@ -1,0 +1,317 @@
+<app-navbar></app-navbar>
+
+<!-- HERO SECTION -->
+<section class="relative h-screen w-full">
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style="
+      background-image: url('https://images.unsplash.com/photo-1542343634-0107c718e81c?auto=format&fit=crop&w=1470&q=80');
+    "
+  ></div>
+  <div
+    class="absolute inset-0 bg-black/50 flex items-center justify-center px-4"
+  >
+    <h1
+      class="text-white text-2xl sm:text-3xl md:text-5xl font-bold text-center leading-tight"
+    >
+      INVEST IN YOUR MEMORIES
+    </h1>
+  </div>
+</section>
+
+<!-- Event Packages Heading -->
+<section class="py-16 px-4 sm:px-6 text-center">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-gray-200">
+    Event Packages
+  </h2>
+  <p class="text-gray-200 mb-10 text-sm sm:text-base">
+    Perfect for birthdays, debuts, and gatherings.
+  </p>
+</section>
+
+<!-- Event Carousel -->
+<section
+  class="relative w-full h-[30rem] sm:h-[40rem] overflow-hidden mb-10 px-4"
+>
+  <div
+    class="flex h-full transition-transform duration-700 ease-in-out"
+    [ngStyle]="{
+      transform: 'translateX(-' + currentIndex1 * (100 / section1.length) + '%)'
+    }"
+    [style.width.%]="section1.length * 100"
+  >
+    <div
+      *ngFor="let image of section1; let i = index"
+      class="h-full flex-shrink-0 grid grid-cols-1 sm:grid-cols-[5%_3fr_2.5fr_2.5fr] gap-2"
+      [style.width.%]="100 / section1.length"
+    >
+      <div class="hidden sm:block relative h-full overflow-hidden">
+        <img
+          [src]="section1[(i + 1) % section1.length].url"
+          alt="Next Peek"
+          class="w-full h-full object-cover opacity-30"
+        />
+      </div>
+      <div
+        class="relative flex flex-col justify-center px-4 sm:px-6 text-white h-full"
+      >
+        <p class="mb-6 sm:mb-12 text-sm sm:text-base text-gray-300">
+          {{ image.description }}
+        </p>
+        <h2
+          class="absolute bottom-16 sm:bottom-24 right-4 text-base sm:text-2xl text-right"
+        >
+          {{ image.title }}
+        </h2>
+        <button
+          [ngClass]="{
+            'opacity-0 pointer-events-none': isAnimating,
+            'opacity-100': !isAnimating
+          }"
+          (click)="prevImage1()"
+          class="absolute bottom-4 right-4 z-20 px-4 py-2 text-2xl sm:text-3xl text-white rounded hover:bg-white/10"
+        >
+          ‹
+        </button>
+      </div>
+      <div class="col-span-2 relative h-full overflow-hidden">
+        <img [src]="image.url" alt="Slide" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/30"></div>
+        <button
+          [ngClass]="{
+            'opacity-0 pointer-events-none': isAnimating,
+            'opacity-100': !isAnimating
+          }"
+          (click)="nextImage1()"
+          class="absolute bottom-4 left-4 z-20 px-4 py-2 text-2xl sm:text-3xl text-white rounded hover:bg-white/10"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Event Price Cards -->
+<section class="py-16 px-4 sm:px-6 text-center">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+  >
+    <div
+      *ngFor="let pkg of eventPackages"
+      class="border rounded-lg p-6 shadow hover:shadow-md transition bg-white/5 text-white"
+    >
+      <h3 class="text-lg sm:text-xl font-semibold mb-2">{{ pkg.title }}</h3>
+      <p class="text-xl sm:text-2xl font-bold text-gray-200 mb-4">
+        {{ pkg.price }}
+      </p>
+      <ul class="text-left space-y-2 text-sm sm:text-base text-gray-200">
+        <li *ngFor="let feature of pkg.features">{{ feature }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WEDDING SECTION -->
+<section class="py-16 px-4 sm:px-6 text-center">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-gray-200">
+    Wedding Packages
+  </h2>
+  <p class="text-gray-200 mb-10 text-sm sm:text-base">
+    Your love story, captured beautifully and timelessly.
+  </p>
+</section>
+
+<!-- Wedding Carousel -->
+<section
+  class="relative w-full h-[30rem] sm:h-[40rem] overflow-hidden mb-10 px-4"
+>
+  <div
+    class="flex h-full transition-transform duration-700 ease-in-out"
+    [ngStyle]="{
+      transform: 'translateX(-' + currentIndex2 * (100 / section2.length) + '%)'
+    }"
+    [style.width.%]="section2.length * 100"
+  >
+    <div
+      *ngFor="let image of section2; let i = index"
+      class="h-full flex-shrink-0 grid grid-cols-1 sm:grid-cols-[2.5fr_2.5fr_3fr_5%] gap-2"
+      [style.width.%]="100 / section2.length"
+    >
+      <div class="col-span-2 relative h-full overflow-hidden">
+        <img [src]="image.url" alt="Slide" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/30"></div>
+        <button
+          [ngClass]="{
+            'opacity-0 pointer-events-none': isAnimating,
+            'opacity-100': !isAnimating
+          }"
+          (click)="prevImage2()"
+          class="absolute bottom-4 right-4 z-20 px-4 py-2 text-2xl sm:text-3xl text-white rounded hover:bg-white/10"
+        >
+          ‹
+        </button>
+      </div>
+      <div
+        class="relative flex flex-col justify-center px-4 sm:px-6 text-white h-full"
+      >
+        <p class="mb-6 sm:mb-12 text-sm sm:text-base text-gray-300">
+          {{ image.description }}
+        </p>
+        <h2
+          class="absolute bottom-16 sm:bottom-24 left-4 text-base sm:text-2xl text-left"
+        >
+          {{ image.title }}
+        </h2>
+        <button
+          [ngClass]="{
+            'opacity-0 pointer-events-none': isAnimating,
+            'opacity-100': !isAnimating
+          }"
+          (click)="nextImage2()"
+          class="absolute bottom-4 left-4 z-20 px-4 py-2 text-2xl sm:text-3xl text-white rounded hover:bg-white/10"
+        >
+          ›
+        </button>
+      </div>
+      <div class="hidden sm:block relative h-full overflow-hidden">
+        <img
+          [src]="section2[(i + 1) % section2.length].url"
+          alt="Next Peek"
+          class="w-full h-full object-cover opacity-30"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wedding Price Cards -->
+<section class="py-16 px-4 sm:px-6 text-center">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+  >
+    <div
+      *ngFor="let pkg of weddingPackages"
+      class="border rounded-lg p-6 shadow hover:shadow-md transition bg-white/5 text-white"
+    >
+      <h3 class="text-lg sm:text-xl font-semibold mb-2">{{ pkg.title }}</h3>
+      <p class="text-xl sm:text-2xl font-bold text-gray-200 mb-4">
+        {{ pkg.price }}
+      </p>
+      <ul class="text-left space-y-2 text-sm sm:text-base text-gray-200">
+        <li *ngFor="let feature of pkg.features">{{ feature }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Portrait Packages Section -->
+<section class="py-16 px-4 sm:px-6 text-center">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-gray-200">
+    Portrait Packages
+  </h2>
+  <p class="text-gray-200 mb-10 text-sm sm:text-base">
+    Perfect for personal branding, family, and individual portraits.
+  </p>
+</section>
+
+<!-- Portrait Carousel -->
+<section
+  class="relative w-full h-[30rem] sm:h-[40rem] overflow-hidden mb-10 px-4"
+>
+  <div
+    class="flex h-full transition-transform duration-700 ease-in-out"
+    [ngStyle]="{
+      transform: 'translateX(-' + currentIndex3 * (100 / section3.length) + '%)'
+    }"
+    [style.width.%]="section3.length * 100"
+  >
+    <div
+      *ngFor="let image of section3; let i = index"
+      class="h-full flex-shrink-0 grid grid-cols-1 sm:grid-cols-[5%_3fr_2.5fr_2.5fr] gap-2"
+      [style.width.%]="100 / section3.length"
+    >
+      <div class="hidden sm:block relative h-full overflow-hidden">
+        <img
+          [src]="section3[(i + 1) % section3.length].url"
+          alt="Next Peek"
+          class="w-full h-full object-cover opacity-30"
+        />
+      </div>
+      <div
+        class="relative flex flex-col justify-center px-4 sm:px-6 text-white h-full"
+      >
+        <p class="mb-6 sm:mb-12 text-sm sm:text-base text-gray-300">
+          {{ image.description }}
+        </p>
+        <h2
+          class="absolute bottom-16 sm:bottom-24 right-4 text-base sm:text-2xl text-right"
+        >
+          {{ image.title }}
+        </h2>
+        <button
+          [ngClass]="{
+            'opacity-0 pointer-events-none': isAnimating,
+            'opacity-100': !isAnimating
+          }"
+          (click)="prevImage3()"
+          class="absolute bottom-4 right-4 z-20 px-4 py-2 text-2xl sm:text-3xl text-white rounded hover:bg-white/10"
+        >
+          ‹
+        </button>
+      </div>
+      <div class="col-span-2 relative h-full overflow-hidden">
+        <img [src]="image.url" alt="Slide" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/30"></div>
+        <button
+          [ngClass]="{
+            'opacity-0 pointer-events-none': isAnimating,
+            'opacity-100': !isAnimating
+          }"
+          (click)="nextImage3()"
+          class="absolute bottom-4 left-4 z-20 px-4 py-2 text-2xl sm:text-3xl text-white rounded hover:bg-white/10"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portrait Price Cards -->
+<section class="py-16 px-4 sm:px-6 text-center">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+  >
+    <div
+      *ngFor="let pkg of portraitPackages"
+      class="border rounded-lg p-6 shadow hover:shadow-md transition bg-white/5 text-white"
+    >
+      <h3 class="text-lg sm:text-xl font-semibold mb-2">{{ pkg.title }}</h3>
+      <p class="text-xl sm:text-2xl font-bold text-gray-200 mb-4">
+        {{ pkg.price }}
+      </p>
+      <ul class="text-left space-y-2 text-sm sm:text-base text-gray-200">
+        <li *ngFor="let feature of pkg.features">{{ feature }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 px-4 sm:px-6 text-center">
+  <h2 class="text-xl sm:text-2xl font-semibold mb-6 text-gray-200">
+    Have something else in mind?
+  </h2>
+  <p class="text-gray-200 mb-8 text-sm sm:text-base">
+    Custom packages available. Let’s talk!
+  </p>
+  <button
+    routerLink="/contact"
+    class="py-3 px-8 border border-white text-white text-sm font-mono tracking-widest hover:bg-white hover:text-black transition"
+  >
+    Inquire Now
+  </button>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+
+<div class="pt-24 px-4 sm:px-6 pb-10 max-w-7xl mx-auto">
+  <h1 class="text-xl sm:text-2xl font-bold mb-6 text-center sm:text-left">
+    {{ albumTitle }}
+  </h1>
+
+  <div class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+    <img
+      *ngFor="let photo of photos"
+      [src]="photo"
+      alt="Album photo"
+      class="w-full rounded-lg object-cover break-inside-avoid"
+    />
+  </div>
+</div>
+
+<app-footer></app-footer>

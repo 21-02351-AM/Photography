@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+<!-- Spacer below fixed navbar -->
+<div class="h-20 md:h-24"></div>
+
+<!-- Contact Section -->
+<section
+  class="relative pt-24 sm:pt-32 pb-12 px-4 sm:px-6 min-h-screen flex items-center"
+>
+  <!-- "Let's Talk" Header (top-left absolute) -->
+  <h2
+    class="absolute top-6 left-4 sm:top-10 sm:left-6 md:left-24 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight"
+  >
+    Let's Talk
+  </h2>
+
+  <!-- Grid Container -->
+  <div
+    class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full"
+  >
+    <!-- Left: Image & Text -->
+    <div class="space-y-6 text-center md:text-left">
+      <!-- Image Container -->
+      <div class="w-full max-w-xs sm:max-w-sm mx-auto md:mx-0">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1671656349197-53caaf598654?q=80&w=687"
+          alt="Photographer"
+          class="rounded-lg shadow-lg w-full h-auto object-cover"
+        />
+      </div>
+
+      <!-- Text Below Image -->
+      <div class="px-2 sm:px-0">
+        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold">
+          Let's Capture Moments
+        </h3>
+        <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">
+          Have a question or ready to book your session? Reach out and let's
+          start planning your shoot.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Contact Form -->
+    <div class="relative p-2 sm:p-0">
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="space-y-8">
+        <!-- Full Name -->
+        <div>
+          <label for="name" class="block text-sm font-medium mb-1"
+            >Full Name</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="contactData.name"
+            required
+            class="w-full border-b border-gray-400 bg-transparent focus:outline-none focus:border-white p-2 text-sm"
+          />
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1"
+            >Email Address</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="contactData.email"
+            required
+            class="w-full border-b border-gray-400 bg-transparent focus:outline-none focus:border-white p-2 text-sm"
+          />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="message" class="block text-sm font-medium mb-1"
+            >Message</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            [(ngModel)]="contactData.message"
+            rows="5"
+            required
+            class="w-full border-b border-gray-400 bg-transparent focus:outline-none focus:border-white p-2 resize-none text-sm"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-right">
+          <button
+            type="submit"
+            [disabled]="contactForm.invalid"
+            class="text-white border border-white px-5 py-2 text-[10px] sm:text-xs font-mono tracking-wide bg-gray-600/30 hover:bg-white hover:text-black transition"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
