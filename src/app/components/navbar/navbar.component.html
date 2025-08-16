@@ -72,17 +72,24 @@
   </button>
 </nav>
 
+<!-- Mobile Menu Backdrop -->
+<div
+  *ngIf="isMobileMenuOpen"
+  class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-all duration-300"
+  (click)="toggleMobileMenu()"
+></div>
+
 <!-- Mobile Menu -->
 <div
   *ngIf="isMobileMenuOpen"
-  class="md:hidden text-white font-medium px-6 pt-4 pb-8 space-y-4 fixed top-20 w-full z-40 transition-all duration-300"
+  class="md:hidden text-white font-medium px-8 py-8 space-y-8 fixed top-0 right-0 w-72 h-screen bg-charcoal/98 backdrop-blur-lg shadow-2xl border-l border-gray-600/40 z-40 transition-all duration-300 text-right flex flex-col justify-center"
 >
   <a
     routerLink="/"
     routerLinkActive="underline font-semibold text-gray-300"
     [routerLinkActiveOptions]="{ exact: true }"
     (click)="scrolltoHome(); toggleMobileMenu()"
-    class="block hover:text-gray-400 transition duration-300"
+    class="block hover:text-gray-400 transition duration-300 text-2xl tracking-wider py-2"
   >
     HOME
   </a>
@@ -90,7 +97,7 @@
     routerLink="/gallery"
     routerLinkActive="underline font-semibold text-gray-300"
     (click)="toggleMobileMenu()"
-    class="block hover:text-gray-400 transition duration-300"
+    class="block hover:text-gray-400 transition duration-300 text-2xl tracking-wider py-2"
   >
     GALLERY
   </a>
@@ -98,7 +105,7 @@
     routerLink="/portfolio"
     routerLinkActive="underline font-semibold text-gray-300"
     (click)="toggleMobileMenu()"
-    class="block hover:text-gray-400 transition duration-300"
+    class="block hover:text-gray-400 transition duration-300 text-2xl tracking-wider py-2"
   >
     SERVICES
   </a>
@@ -106,7 +113,7 @@
     routerLink="/contact"
     routerLinkActive="underline font-semibold text-gray-300"
     (click)="toggleMobileMenu()"
-    class="block hover:text-gray-400 transition duration-300"
+    class="block hover:text-gray-400 transition duration-300 text-2xl tracking-wider py-2"
   >
     CONTACT
   </a>
