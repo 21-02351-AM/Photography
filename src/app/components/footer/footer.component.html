@@ -1,66 +1,141 @@
-<footer class="w-full text-white font-mono">
+<footer class="w-full text-white font-mono bg-charcoal">
   <!-- Top Section: Social Icons + Label -->
-  <div class="py-12 px-6 md:px-16">
-    <div class="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 items-center">
-      <!-- Left: Icons + Names -->
-      <div class="flex flex-wrap justify-center md:justify-start gap-6">
-        <div
-          *ngFor="let social of socials"
-          class="flex flex-col items-center w-24"
-        >
-          <a [href]="social.url" target="_blank" rel="noopener noreferrer">
-            <img
-              [src]="social.image"
-              [alt]="social.name"
-              class="w-16 h-16 md:w-20 md:h-20 object-cover shadow-md hover:scale-105 transition duration-300"
-            />
-          </a>
-          <span class="mt-2 text-xs md:text-sm text-gray-400 text-center">
-            {{ social.name }}
-          </span>
+  <div class="py-8 md:py-12 px-4 sm:px-6 md:px-16">
+    <div class="max-w-7xl mx-auto">
+      <!-- Mobile: Stack vertically -->
+      <div class="flex flex-col items-center space-y-8 md:hidden">
+        <!-- Label first on mobile -->
+        <div class="text-center">
+          <p class="text-lg sm:text-xl font-semibold text-gray-300">
+            Follow me on my socials
+          </p>
+        </div>
+
+        <!-- Social icons below on mobile -->
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <div
+            *ngFor="let social of socials"
+            class="flex flex-col items-center w-20 sm:w-24"
+          >
+            <a [href]="social.url" target="_blank" rel="noopener noreferrer">
+              <img
+                [src]="social.image"
+                [alt]="social.name"
+                class="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-lg shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300"
+              />
+            </a>
+            <span class="mt-2 text-xs text-gray-400 text-center font-medium">
+              {{ social.name }}
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- Right: Label -->
-      <div class="text-center md:text-right">
-        <p class="text-xl md:text-2xl font-semibold text-gray-300">
-          Follow me on my socials
-        </p>
+      <!-- Desktop: Side by side -->
+      <div class="hidden md:grid md:grid-cols-2 items-center gap-8">
+        <!-- Left: Icons + Names -->
+        <div class="flex flex-wrap justify-start gap-6 lg:gap-8">
+          <div
+            *ngFor="let social of socials"
+            class="flex flex-col items-center w-24 lg:w-28"
+          >
+            <a [href]="social.url" target="_blank" rel="noopener noreferrer">
+              <img
+                [src]="social.image"
+                [alt]="social.name"
+                class="w-16 h-16 lg:w-20 lg:h-20 object-cover rounded-lg shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300"
+              />
+            </a>
+            <span class="mt-3 text-sm text-gray-400 text-center font-medium">
+              {{ social.name }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Label -->
+        <div class="text-right">
+          <p
+            class="text-xl lg:text-2xl font-semibold text-gray-300 leading-relaxed"
+          >
+            Follow me on<br class="hidden lg:block" />
+            my socials
+          </p>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Divider -->
-  <hr class="border-white/10" />
+  <hr class="border-white/20" />
 
   <!-- Bottom Section -->
-  <div class="py-4 px-6 md:px-16">
-    <div
-      class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 items-center gap-4 text-center sm:text-left"
-    >
-      <!-- Left -->
-      <p class="text-xs tracking-widest text-gray-400 sm:text-left">
-        © 2025 ALFRED MIGUEL NO COPYRIGHT INFRINGEMENT INTENDED PHOTOS INSIDE
-        THE PAGE IS NOT MINE
-      </p>
-
-      <!-- Center: Logo Button -->
-      <div class="flex justify-center">
+  <div class="py-4 sm:py-6 px-4 sm:px-6 md:px-16">
+    <div class="max-w-7xl mx-auto">
+      <!-- Mobile: Stack vertically -->
+      <div class="flex flex-col items-center space-y-4 md:hidden">
+        <!-- Logo button first -->
         <button
-          class="border border-white px-2 py-1 text-xs hover:bg-white hover:text-black transition"
+          class="border border-white/60 px-4 py-2 text-sm font-bold tracking-wider hover:bg-white hover:text-black transition-all duration-300"
         >
-          As
+          AS
         </button>
-      </div>
 
-      <!-- Right: Scroll-to-top -->
-      <div class="flex justify-center sm:justify-end">
+        <!-- Scroll to top -->
         <button
           (click)="scrollToTop()"
-          class="hover:text-gray-300 transition text-sm"
+          class="flex items-center justify-center w-10 h-10 border border-white/30 rounded-full hover:bg-white/10 hover:border-white/60 transition-all duration-300 text-lg"
+          title="Scroll to top"
         >
           ↑
         </button>
+
+        <!-- Copyright text -->
+        <div class="text-center max-w-xs">
+          <p class="text-xs leading-relaxed text-gray-400 font-light">
+            © 2025 <span class="font-medium">ALFRED MIGUEL</span><br />
+            <span class="text-gray-500 text-[10px] mt-1 block">
+              NO COPYRIGHT INFRINGEMENT INTENDED<br />
+              PHOTOS INSIDE THE PAGE ARE NOT MINE
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Tablet and Desktop: Grid layout -->
+      <div class="hidden md:grid md:grid-cols-3 items-center gap-4">
+        <!-- Left: Copyright -->
+        <div class="text-left">
+          <p
+            class="text-xs lg:text-sm leading-relaxed text-gray-400 font-light max-w-xs"
+          >
+            © 2025 <span class="font-medium text-white">ALFRED MIGUEL</span
+            ><br />
+            <span class="text-gray-500 text-xs mt-1 block">
+              NO COPYRIGHT INFRINGEMENT INTENDED<br />
+              PHOTOS INSIDE THE PAGE ARE NOT MINE
+            </span>
+          </p>
+        </div>
+
+        <!-- Center: Logo Button -->
+        <div class="flex justify-center">
+          <button
+            class="border px-4 py-2 text-sm font-bold tracking-wider hover:bg-white hover:text-black transition-all duration-300"
+          >
+            AM
+          </button>
+        </div>
+
+        <!-- Right: Scroll-to-top -->
+        <div class="flex justify-end">
+          <button
+            (click)="scrollToTop()"
+            class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 hover:border-white/60 transition-all duration-300 text-lg"
+            title="Scroll to top"
+          >
+            ↑
+          </button>
+        </div>
       </div>
     </div>
   </div>
